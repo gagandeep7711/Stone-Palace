@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&display=swap");
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #e3e2df;
+  margin: 5% auto;
+  padding: 30px;
+  border: 5px solid #5d001e;
+  width: 40%;
+  position: relative;
+  border-radius: 5px;
+}
+
+.modal-content .button-container {
+  text-align: center;
+}
+
+.button-container .toggle-btn {
+  padding: 10px 30px;
+  outline: none;
+  position: relative;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background-color: #5d001e;
+  border-radius: 5px;
+}
+
+form {
+  width: 100%;
+}
+
+form#formSignUp,
+form#formAdminlogIn {
+  display: none;
+}
+
+form .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+form .header i {
+  cursor: pointer;
+  padding: 5px 10px;
+  color: #fff;
+  background-color: #5d001e;
+  border-radius: 3px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+  width: 100%;
+}
+
+.form-control label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.form-control input {
+  box-sizing: border-box;
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px;
+  width: 100%;
+  border-bottom: 4px solid #5d001e;
+  outline: none;
+}
+
+.form-flex {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.form-flex h6 {
+  margin: 0;
+}
+
+.form-flex a {
+  color: #5d001e;
+}
+
+.form-control i {
+  position: absolute;
+  top: 37px;
+  right: 10px;
+  visibility: hidden;
+}
+
+.form-control small {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.form-control.success input {
+  border-color: #5d001e;
+}
+
+.form-control.error input {
+  border-color: 5d001e;
+}
+
+.form-control.success i.fa-check-circle {
+  color: #5d001e;
+  visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+  color: #5d001e;
+  visibility: visible;
+}
+
+.form-control.error small {
+  color: 35d001e;
+  visibility: visible;
+}
+
+form#formlogIn button,
+form#formSignUp button,
+form#formAdminlogIn button {
+  background-color: #5d001e;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.form-last {
+  margin: 20px 0 0 0;
+  text-align: right;
+}
+
+.form-last a {
+  color: #5d001e;
+  text-align: right;
+}
+
+@media only screen and (max-width: 576px) {
+  .modal-content {
+    width: 60%;
+    padding: 20px;
+  }
+
+  form .header i {
+    font-size: 10px;
+    padding: 3px 5px;
+  }
+
+  .button-container .toggle-btn {
+    padding: 5px 15px;
+  }
+
+  .form-control input {
+    font-size: 14px;
+    padding: 5px;
+    border-bottom: 2px solid #5d001e;
+  }
+
+  .form-control label {
+    font-size: 12px;
+  }
+
+  form#formlogIn button,
+  form#formSignUp button {
+    font-size: 14px;
+    padding: 7px;
+  }
+
+  .form-last a {
+    font-size: 10px;
+  }
+
+  .form-last {
+    margin: 10px 0 0 0;
+  }
+}

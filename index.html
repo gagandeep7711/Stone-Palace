@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      href="./images/Logo/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <script
+      src="https://kit.fontawesome.com/418d14164c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./Css-Files/style.css" />
+    <link rel="stylesheet" href="./Css-Files/signform.css" />
+    <link rel="stylesheet" href="./Css-Files/loader.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <title>The Stone Palace</title>
+  </head>
+
+  <body onload="preLoaderHandler()">
+    <div id="loader"></div>
+
+    <header>
+      <div class="topNav">
+        <div class="topnav-left">
+          <h5>Welcome <span id="userGreetingName">User</span> To The Stone Palace</h5>
+          <h5>Last Login:- <span id="lastLoginDetail"></span></h5>
+        </div>
+        <div class="search-container">
+          <form action="#">
+            <input
+              type="text"
+              placeholder="Search Here.."
+              class="search-input"
+            />
+            <button type="submit" class="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+          <div class="form-right">
+            <button class="btn-tool-tip">
+              <a onclick="checkValidation()"
+                ><i class="fas fa-heart"></i>
+                <span class="span-wish">0</span>
+              </a>
+            </button>
+            <button class="btn-tool-tip">
+              <a href="#">
+                <i
+                  class="fas fa-user-circle"
+                  onclick="document.getElementById('myModal').style.display='block'"
+                ></i
+              ></a>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="midNav">
+        <a href="./index.html"
+          ><img src="./images/Logo/Logo-stone.jpeg" alt="Logo"
+        /></a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#menu-section">Menu</a></li>
+          <li><a href="index.html#About-us">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+  
+        <i class="fas fa-bars"></i>
+      </div>
+    </header>
+
+    <div class="navigation-bar">
+      <nav class="nav-categories">
+        <ul>
+          <li>
+            <a href="./Product/Plant.html"
+              ><i class="fa fa-diamond"></i> Natural Diamond</a
+            >
+          </li>
+          <li>
+            <a href="./Product/Art.html"
+              ><i class="fa fa-diamond"></i>CVD Stones</a
+            >
+          </li>
+          <li>
+            <a href="./Product/Home.html"
+              ><i class="fa fa-diamond"></i>Ruby & Blue Sapphire</a
+            >
+          </li>
+          <li>
+            <a href="./Product/Jewellery.html"
+              ><i class="fa fa-diamond"></i>Other Stones</a
+            >
+          </li>
+          <li class="add-to-cart">
+            <a href="./checkOut.html">
+              <span class="span-cart">0</span>
+              <i class="fas fa-cart-plus"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <main>
+     
+      <section class="Product-feature">
+        <div>
+          <h2>Our Latest Product</h2>
+        </div>
+
+        <section class="latest-product-feature">
+          <div class="product-container">
+            <!-- Latest Product -->
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <div class="button-container">
+          <button type="button" class="toggle-btn" id="toggle-login">
+            Log In
+          </button>
+          <button type="button" class="toggle-btn" id="toggle-signup">
+            Sign Up
+          </button>
+          <button type="button" class="toggle-btn" id="toggle-admin">
+            Admin
+          </button>
+        </div>
+
+        <form class="form" id="formlogIn">
+          <div class="header">
+            <h2>Log In</h2>
+            <i
+              class="fas fa-times"
+              onclick="document.getElementById('myModal').style.display='none'"
+            ></i>
+          </div>
+
+          <div class="form-control">
+            <label for="userEmailLogIn">Your Email:</label>
+            <input
+              type="email"
+              id="userEmailLogIn"
+              placeholder="Enter Your Email..."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+
+          <div class="form-control">
+            <label for="userPassLogIn">Your Password:</label>
+            <input
+              type="password"
+              id="userPassLogIn"
+              placeholder="Enter Your Password.."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+
+          <div class="form-flex">
+            <input type="checkbox" style="display: inline-block" />
+            <h6>Remember Me</h6>
+          </div>
+
+          <button type="button" id="logInBtn">Log In</button>
+
+          <div class="form-last">
+            <a href="#">Forgot Password?</a>
+          </div>
+        </form>
+
+        <form class="form" id="formSignUp">
+          <div class="header">
+            <h2>Sign Up</h2>
+            <i
+              class="fas fa-times"
+              onclick="document.getElementById('myModal').style.display='none'"
+            ></i>
+          </div>
+
+          <div class="form-control">
+            <label for="userNameSignUp">Enter Your Name:</label>
+            <input type="text" id="userNameSignUp" placeholder="Your Name..." />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+
+          <div class="form-control">
+            <label for="userEmailSignUp">Enter Email:</label>
+            <input
+              type="email"
+              id="userEmailSignUp"
+              placeholder="Your Email..."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+
+          <div class="form-control">
+            <label for="userPassSignUp1">Enter Password:</label>
+            <input
+              type="password"
+              id="userPassSignUp1"
+              placeholder="Enter Password.."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form-control">
+            <label for="userPassSignUp2">Confirm Password:</label>
+            <input
+              type="password"
+              id="userPassSignUp2"
+              placeholder="Enter Again Password.."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+
+          <div class="form-flex">
+            <input type="checkbox" style="display: inline-block" />
+            <h6>
+              I Accept the <a href="#">Terms Of Use</a> &
+              <a href="#">Privacy Policy</a>
+            </h6>
+          </div>
+
+          <button type="button" id="signUpBtn">Sign Up</button>
+        </form>
+        
+        <form class="form" id="formAdminlogIn">
+          <div class="header">
+            <h2>Admin Log In</h2>
+            <i
+              class="fas fa-times"
+              onclick="document.getElementById('myModal').style.display='none'"
+            ></i>
+          </div>
+
+          <div class="form-control">
+            <label for="userEmailLogIn">Admin id:</label>
+            <input
+              type="email"
+              id="userEmailLogIn"
+              placeholder="Enter Your Email..."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+
+          <div class="form-control">
+            <label for="userPassLogIn">Your Password:</label>
+            <input
+              type="password"
+              id="userPassLogIn"
+              placeholder="Enter Your Password.."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+
+          <div class="form-flex">
+            <input type="checkbox" style="display: inline-block" />
+            <h6>Remember Me</h6>
+          </div>
+
+          <button type="button" id="admlogInBtn">Log In</button>
+        </form>
+      </div>
+    </div>
+<!-- footer -->
+    <div class="footer"><iframe style="height: 100%; width: 100%;" src="footer.html"></iframe></div>
+
+    <script src="./js/greetUser.js"></script>
+    <script src="../js/latestItems.js"></script>
+    <script src="./js/loader.js"></script>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>

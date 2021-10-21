@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      href="./images/Logo/favicon-32x32.png"
+      type="image/x-icon"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/418d14164c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <link rel="stylesheet" href="./Css-Files/style.css" />
+    <link rel="stylesheet" href="./Css-Files/addTocart.css" />
+
+    <link rel="stylesheet" href="./Css-Files/signform.css" />
+    <link rel="stylesheet" href="./Css-Files/loader.css" />
+    <link rel="stylesheet" href="./Css-Files/proceed.css" />
+
+    <title>Proceed To Checkout | Homify</title>
+  </head>
+
+  <body onload="preLoaderHandler()">
+    <div id="loader"></div>
+
+    <header>
+      <div class="topNav">
+        <div class="topnav-left">
+          <h5>Welcome <span id="userGreetingName">User</span> To Homify</h5>
+        </div>
+        <div class="search-container">
+          <form action="#">
+            <input
+              type="text"
+              placeholder="Search Here.."
+              class="search-input"
+            />
+            <button type="submit" class="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+          <div class="form-right">
+            <button class="btn-tool-tip">
+              <a href="./wishList.html"
+                ><i class="fas fa-heart"></i>
+                <span class="span-wish">0</span>
+              </a>
+            </button>
+            <button class="btn-tool-tip">
+              <a href="#">
+                <i
+                  class="fas fa-user-circle"
+                  onclick="document.getElementById('myModal').style.display='block'"
+                ></i
+              ></a>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="midNav">
+        <a href="./index.html"
+          ><img src="./images/Logo/output-onlinepngtools (1).png" alt="Logo"
+        /></a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#menu-section">Menu</a></li>
+          <li><a href="index.html#About-us">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+        <i class="fas fa-bars"></i>
+      </div>
+    </header>
+
+    <div class="navigation-bar">
+      <nav class="nav-categories">
+        <ul>
+          <li>
+            <a href="./Product/Plant.html"
+              ><i class="fas fa-leaf"></i> Plant & Garden</a
+            >
+          </li>
+          <li>
+            <a href="./Product/Art.html"
+              ><i class="fas fa-paint-brush"></i>Arts & Crafts</a
+            >
+          </li>
+          <li>
+            <a href="./Product/Home.html"
+              ><i class="fas fa-home"></i>Home Decor & Interior Design</a
+            >
+          </li>
+          <li>
+            <a href="./Product/Jewellery.html"
+              ><i class="fa fa-diamond"></i>Jewelry & Accessories</a
+            >
+          </li>
+          <li class="add-to-cart">
+            <a href="./checkOut.html">
+              <span class="span-cart">0</span>
+              <i class="fas fa-cart-plus"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <main>
+      <div class="usercreateacc">
+        <p>
+          Don't Have Account ??
+          <button
+            onclick="document.getElementById('myModal').style.display='block'"
+          >
+            Create It
+          </button>
+        </p>
+      </div>
+      <section class="user-info-sec">
+        <h1 class="title">CHECK OUT</h1>
+        <div class="user-total-info-cont">
+          <div class="user-personal-info">
+            <h2>Your Information:</h2>
+            <form action="#">
+              <div class="form-control">
+                <label for="userfullname">Full Name:</label>
+                <input type="text" id="userfullname" required />
+                <small></small>
+              </div>
+              <div class="form-control">
+                <label for="userperemail">Email:</label>
+                <input type="email" id="userperemail" required />
+                <small></small>
+              </div>
+
+              <div class="form-control">
+                <label for="useraddress">Full Adress:</label>
+                <input type="text" id="useraddress" required />
+                <small></small>
+              </div>
+
+              <div class="user-city-state">
+                <div class="form-control">
+                  <label for="usercity">City:</label>
+                  <input type="text" id="usercity" required />
+                </div>
+                <div class="form-control">
+                  <label for="userstate">State:</label>
+                  <input type="text" id="userstate" required />
+                  <small></small>
+                </div>
+              </div>
+              <div class="form-control">
+                <label for="userphone">Phone:</label>
+                <input type="tel" id="userphone" required />
+                <small></small>
+              </div>
+            </form>
+          </div>
+
+          <div class="user-orderr-sum">
+            <div class="subTotal">
+              <h1 class="border-h1">Order Summary</h1>
+              <h4>Number Of Items In Cart: <span id="numItem"></span></h4>
+              <h4>Sub Total:</h4>
+              <span class="Total">Rs. 0</span>
+              <h4>Delivery Charges:</h4>
+              <span>Rs. 200</span>
+              <h4 class="border-h4">Grand Total:</h4>
+              <b><span class="grandTotal">Rs. 0</span></b>
+              <button class="Order-placed" id="usercheckout">
+                <a href="#">Checkout</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <div class="button-container">
+          <button type="button" class="toggle-btn" id="toggle-login">
+            Log In
+          </button>
+          <button type="button" class="toggle-btn" id="toggle-signup">
+            Sign Up
+          </button>
+        </div>
+
+        <form class="form" id="formlogIn">
+          <div class="header">
+            <h2>Log In</h2>
+            <i
+              class="fas fa-times"
+              onclick="document.getElementById('myModal').style.display='none'"
+            ></i>
+          </div>
+
+          <div class="form-control">
+            <label for="userEmailLogIn">Your Email:</label>
+            <input
+              type="email"
+              id="userEmailLogIn"
+              placeholder="Enter Your Email..."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+
+          <div class="form-control">
+            <label for="userPassLogIn">Your Password:</label>
+            <input
+              type="password"
+              id="userPassLogIn"
+              placeholder="Enter Your Password.."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+
+          <div class="form-flex">
+            <input type="checkbox" style="display: inline-block" />
+            <h6>Remember Me</h6>
+          </div>
+
+          <button type="button" id="logInBtn">Log In</button>
+
+          <div class="form-last">
+            <a href="#">Forgot Password?</a>
+          </div>
+        </form>
+
+        <form class="form" id="formSignUp">
+          <div class="header">
+            <h2>Sign Up</h2>
+            <i
+              class="fas fa-times"
+              onclick="document.getElementById('myModal').style.display='none'"
+            ></i>
+          </div>
+
+          <div class="form-control">
+            <label for="userNameSignUp">Enter Your Name:</label>
+            <input type="text" id="userNameSignUp" placeholder="Your Name..." />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+
+          <div class="form-control">
+            <label for="userEmailSignUp">Enter Email:</label>
+            <input
+              type="email"
+              id="userEmailSignUp"
+              placeholder="Your Email..."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+
+          <div class="form-control">
+            <label for="userPassSignUp1">Enter Password:</label>
+            <input
+              type="password"
+              id="userPassSignUp1"
+              placeholder="Enter Password.."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form-control">
+            <label for="userPassSignUp2">Confirm Password:</label>
+            <input
+              type="password"
+              id="userPassSignUp2"
+              placeholder="Enter Again Password.."
+            />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+
+          <div class="form-flex">
+            <input type="checkbox" style="display: inline-block" />
+            <h6>
+              I Accept the <a href="#">Terms Of Use</a> &
+              <a href="#">Privacy Policy</a>
+            </h6>
+          </div>
+
+          <button type="button" id="signUpBtn">Sign Up</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer"><iframe style="height: 100%; width: 100%;" src="footer.html"></iframe></div>
+    </footer>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="./js/script.js"></script>
+    <script src="./js/proceed.js"></script>
+    <script src="./js/greetUser.js"></script>
+    <script src="./js/loader.js"></script>
+  </body>
+</html>
