@@ -157,7 +157,7 @@ signUpFormBtn.addEventListener("click", (e) => {
     setTimeout(() => {
       document.getElementById("myModal").style.display = "none";
     }, 1000);
-    window.location.reload();
+    //window.location.reload();
     userNameDisplay();
     
   } else {
@@ -176,7 +176,7 @@ const checkSignupInputs = () => {
     setErrorFor(userNameSu, "Name Can't Be Blank !!");
   } else {
     setSuccessFor(userNameSu);
-    userData.push(localStorage.setItem("userName", userNameValue));
+    //userData.push(localStorage.setItem("userName", userNameValue));
   }
 
   //email validation
@@ -188,7 +188,7 @@ const checkSignupInputs = () => {
     return false;
   } else {
     setSuccessFor(userEmailSu);
-    userData.push(localStorage.setItem("userEmail", userEmailValue));
+    //userData.push(localStorage.setItem("userEmail", userEmailValue));
   }
 
   //password validation
@@ -207,7 +207,7 @@ const checkSignupInputs = () => {
   } else {
     setSuccessFor(userPasswordSu1);
     setSuccessFor(userPasswordSu2);
-    userData.push(localStorage.setItem("userPassword", userPassValue2));
+    //userData.push(localStorage.setItem("userPassword", userPassValue2));
     return true;
   }
 };
